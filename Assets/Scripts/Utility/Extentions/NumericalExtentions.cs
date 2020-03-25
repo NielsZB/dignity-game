@@ -71,4 +71,9 @@ public static class NumericalExtentions
         return newRangeMin + (value - valueRangeMin) * (mewRangeMax - newRangeMin) / (valueRangeMax - valueRangeMin);
     }
 
+    public static float Squared(this float value)
+    {
+        return value * value;
+    }
+
 }

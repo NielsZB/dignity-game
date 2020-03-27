@@ -30,14 +30,6 @@ public class EventInteract : MonoBehaviour
         }
     }
 
-    private void OnValidate()
-    {
-        if (!triggerEvent & !broadcast)
-        {
-            Debug.LogError("InteractEvent has no response enable either Trigger Event or Broadcast", gameObject);
-        }
-    }
-
     private void OnMouseDown()
     {
         if (cameraMain == null)

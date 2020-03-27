@@ -20,23 +20,26 @@ public class EventMove : MonoBehaviour
     }
 
     [SerializeField]
-    TriggerMode triggerOn = default;
-    [Space(10)]
-    [SerializeField]
     Shape shape = default;
-    [SerializeField,ShowIf("sphere")]
+    [SerializeField, ShowIf("sphere")]
     float radius = 1f;
     [SerializeField, ShowIf("box")]
     Vector3 size = Vector3.one;
     [Space(10)]
     [SerializeField]
+    TriggerMode triggerOn = default;
+    [SerializeField]
     bool broadcast = false;
-    [SerializeField, Dropdown("MethodNames"), ShowIf("broadcast")]
-    string methodName = default;
+    [SerializeField, Dropdown("MethodNames"), ShowIf(ConditionOperator.And, "broadcast", "enter")]
+    string enterMethod = default;
+    [SerializeField, Dropdown("MethodNames"), ShowIf(ConditionOperator.And, "broadcast", "exit")]
+    string exitMethod = default;
     [SerializeField]
     bool triggerEvent = false;
-    [SerializeField, ShowIf("triggerEvent")]
-    UnityEvent response = default;
+    [SerializeField, ShowIf(ConditionOperator.And, "triggerEvent", "enter")]
+    UnityEvent enterEvent = default;
+    [SerializeField, ShowIf(ConditionOperator.And, "triggerEvent", "exit")]
+    UnityEvent exitEvent = default;
 
 
     string[] MethodNames = new string[] { "OnResponse", "Play", "Pause", "Stop" };
@@ -44,9 +47,13 @@ public class EventMove : MonoBehaviour
     bool box() => shape == Shape.box;
     bool sphere() => shape == Shape.sphere;
 
+    bool enter() => triggerOn != TriggerMode.Exit;
+
+    bool exit() => triggerOn != TriggerMode.Enter;
+
     private void Start()
     {
-        if(TryGetComponent(out Collider initialCollider))
+        if (TryGetComponent(out Collider initialCollider))
         {
             Destroy(initialCollider);
             Debug.Log($"A {initialCollider.GetType()} has been removed from {name}", gameObject);
@@ -59,7 +66,7 @@ public class EventMove : MonoBehaviour
             col.size = size;
             col.isTrigger = true;
         }
-        else if(shape == Shape.sphere)
+        else if (shape == Shape.sphere)
         {
             SphereCollider col = (SphereCollider)gameObject.AddComponent(typeof(SphereCollider));
             col.radius = radius;
@@ -72,26 +79,17 @@ public class EventMove : MonoBehaviour
         }
     }
 
-
-    private void OnValidate()
-    {
-        if (!triggerEvent & !broadcast)
-        {
-            Debug.LogError("InteractEvent has no response enable either Trigger Event or Broadcast", gameObject);
-        }
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            if(triggerOn == TriggerMode.Enter || triggerOn == TriggerMode.EnterExit)
+            if (triggerOn == TriggerMode.Enter || triggerOn == TriggerMode.EnterExit)
             {
                 if (triggerEvent)
-                    response.Invoke();
+                    enterEvent.Invoke();
 
                 if (broadcast)
-                    SendMessage(methodName);
+                    SendMessage(enterMethod);
             }
         }
     }
@@ -103,10 +101,10 @@ public class EventMove : MonoBehaviour
             if (triggerOn == TriggerMode.Exit || triggerOn == TriggerMode.EnterExit)
             {
                 if (triggerEvent)
-                    response.Invoke();
+                    exitEvent.Invoke();
 
                 if (broadcast)
-                    SendMessage(methodName);
+                    SendMessage(exitMethod);
             }
         }
     }
@@ -115,11 +113,11 @@ public class EventMove : MonoBehaviour
     {
         Gizmos.color = Color.cyan;
 
-        if(shape == Shape.box)
+        if (shape == Shape.box)
         {
             Gizmos.DrawWireCube(transform.position, size);
         }
-        else if(shape == Shape.sphere)
+        else if (shape == Shape.sphere)
         {
             Gizmos.DrawWireSphere(transform.position, radius);
         }

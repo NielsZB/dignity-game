@@ -1162,7 +1162,7 @@ GameObject:
   - component: {fileID: 48549351}
   - component: {fileID: 48549350}
   - component: {fileID: 48549349}
-  - component: {fileID: 48549348}
+  - component: {fileID: 48549347}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -1170,7 +1170,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &48549348
+--- !u!114 &48549347
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1182,14 +1182,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffae4ca23eec9b74dbbed713c91d6fba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerOn: 0
-  shape: 0
-  radius: 1
-  size: {x: 3.14, y: 2.29, z: 2.2}
-  broadcast: 0
-  methodName: OnResponse
+  shape: 1
+  radius: 2
+  size: {x: 1, y: 1, z: 1}
+  triggerOn: 2
+  broadcast: 1
+  enterMethod: 
+  exitMethod: 
   triggerEvent: 0
-  response:
+  enterEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  exitEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!23 &48549349
@@ -1519,7 +1523,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_Name
-      value: FPSController
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1679,51 +1687,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &1537185946
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1537185948}
-  - component: {fileID: 1537185947}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!320 &1537185947
-PlayableDirector:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1537185946}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_PlayableAsset: {fileID: 0}
-  m_InitialState: 1
-  m_WrapMode: 2
-  m_DirectorUpdateMode: 1
-  m_InitialTime: 0
-  m_SceneBindings: []
-  m_ExposedReferences:
-    m_References: []
---- !u!4 &1537185948
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1537185946}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.0336926, y: -2.0585938, z: 4.780287}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

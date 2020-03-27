@@ -5,47 +5,24 @@ using UnityEngine.Events;
 using NaughtyAttributes;
 public class EventLook : EventBase
 {
-    enum TriggerMode
-    {
-        OnVisible,
-        OnInvisible,
-        Angle
-    }
-
-    [SerializeField]
-    TriggerMode mode;
-
     enum lookType
     {
         At,
         Away
     }
-
-    [SerializeField, ShowIf("lookAngle")]
+    [Space(10)]
+    [SerializeField]
     lookType look = default;
 
-    [SerializeField, ShowIf("lookAngle")]
+    [SerializeField]
     float angle;
 
-
     [SerializeField]
-    bool broadcast = false;
-    [SerializeField, Dropdown("MethodNames"), ShowIf("broadcast")]
-    string responseMethod = default;
-    [SerializeField]
-    bool triggerEvent = false;
-    [SerializeField, ShowIf("triggerEvent")]
     UnityEvent responseEvent = default;
-
-
-    string[] MethodNames = new string[] { "OnResponse", "Play", "Pause", "Stop" };
 
     Transform lookTransform;
 
-    bool visible() => mode == TriggerMode.OnVisible;
-    bool invisible() => mode == TriggerMode.OnInvisible;
-    bool lookAngle() => mode == TriggerMode.Angle;
-
+    bool triggered = false;
     protected override void Start()
     {
         base.Start();
@@ -54,42 +31,28 @@ public class EventLook : EventBase
 
     private void Update()
     {
-        if (InRange)
+        if (InRange && !triggered)
         {
-            if (mode == TriggerMode.Angle)
+            Vector3 direction = transform.position - lookTransform.position;
+            float currentAngle = Vector3.Angle(lookTransform.forward, direction);
+
+            
+            if (look == lookType.At)
             {
-                Vector3 direction = transform.position - lookTransform.position;
-                float currentAngle = Vector3.Angle(lookTransform.forward, direction);
-
-                if(look == lookType.At)
+                if (currentAngle <= angle)
                 {
-                    if(currentAngle <= angle)
-                    {
-                        if (broadcast)
-                        {
-                            SendMessage(responseMethod, SendMessageOptions.DontRequireReceiver);
-                        }
+                    responseEvent.Invoke();
+                    triggered = true;
 
-                        if (triggerEvent)
-                        {
-                            responseEvent.Invoke();
-                        }
-                    }
                 }
-                else
+            }
+            else
+            {
+                if (currentAngle >= angle)
                 {
-                    if (currentAngle >= angle)
-                    {
-                        if (broadcast)
-                        {
-                            SendMessage(responseMethod, SendMessageOptions.DontRequireReceiver);
-                        }
+                    responseEvent.Invoke();
+                    triggered = true;
 
-                        if (triggerEvent)
-                        {
-                            responseEvent.Invoke();
-                        }
-                    }
                 }
             }
         }

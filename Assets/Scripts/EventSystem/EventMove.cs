@@ -12,27 +12,15 @@ public class EventMove : EventBase
         Exit,
         EnterExit
     }
+    [Space(10)]
     [SerializeField]
     TriggerMode triggerOn = default;
 
+    [SerializeField, ShowIf("enter")]
+    UnityEvent enterResponse = default;
+    [SerializeField, ShowIf("exit")]
+    UnityEvent exitResponse = default;
 
-    [SerializeField]
-    bool broadcast = false;
-    [SerializeField, Dropdown("MethodNames"), ShowIf(ConditionOperator.And, "broadcast", "enter")]
-    string enterMethod = default;
-    [SerializeField, Dropdown("MethodNames"), ShowIf(ConditionOperator.And, "broadcast", "exit")]
-    string exitMethod = default;
-
-
-    [SerializeField]
-    bool triggerEvent = false;
-    [SerializeField, ShowIf(ConditionOperator.And, "triggerEvent", "enter")]
-    UnityEvent enterEvent = default;
-    [SerializeField, ShowIf(ConditionOperator.And, "triggerEvent", "exit")]
-    UnityEvent exitEvent = default;
-
-
-    string[] MethodNames = new string[] { "OnResponse", "Play", "Pause", "Stop" };
 
     bool enter() => triggerOn != TriggerMode.Exit;
 
@@ -44,11 +32,7 @@ public class EventMove : EventBase
         {
             if (triggerOn == TriggerMode.Enter || triggerOn == TriggerMode.EnterExit)
             {
-                if (triggerEvent)
-                    enterEvent.Invoke();
-
-                if (broadcast)
-                    SendMessage(enterMethod);
+                enterResponse.Invoke();
             }
         }
     }
@@ -59,11 +43,7 @@ public class EventMove : EventBase
         {
             if (triggerOn == TriggerMode.Exit || triggerOn == TriggerMode.EnterExit)
             {
-                if (triggerEvent)
-                    exitEvent.Invoke();
-
-                if (broadcast)
-                    SendMessage(exitMethod);
+                exitResponse.Invoke();
             }
         }
     }

@@ -18,7 +18,7 @@ public class EventLook : EventBase
     float angle;
 
     [SerializeField]
-    UnityEvent responseEvent = default;
+    UnityEvent response = default;
 
     Transform lookTransform;
 
@@ -41,7 +41,7 @@ public class EventLook : EventBase
             {
                 if (currentAngle <= angle)
                 {
-                    responseEvent.Invoke();
+                    response.Invoke();
                     triggered = true;
 
                 }
@@ -50,7 +50,7 @@ public class EventLook : EventBase
             {
                 if (currentAngle >= angle)
                 {
-                    responseEvent.Invoke();
+                    response.Invoke();
                     triggered = true;
 
                 }

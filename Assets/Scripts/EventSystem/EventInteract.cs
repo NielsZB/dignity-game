@@ -8,13 +8,13 @@ public class EventInteract : EventBase
     [Space(10)]
 
     [SerializeField]
-    UnityEvent responseEvent;
+    UnityEvent response;
 
     private void OnMouseDown()
     {
         if (InRange)
         {
-            responseEvent.Invoke();
+            response.Invoke();
         }
     }
 }

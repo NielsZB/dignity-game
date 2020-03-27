@@ -9,18 +9,19 @@ public class EventBase : MonoBehaviour
     protected enum Shape
     {
         box,
-        sphere,
+        sphere
     }
-
-
     [SerializeField]
+    protected bool global = false;
+    [SerializeField, ShowIf("globalInvert")]
     protected Shape shape = default;
 
-    [SerializeField, ShowIf("shapeBox")]
+    [SerializeField, ShowIf(ConditionOperator.And, "globalInvert", "shapeBox")]
     protected Vector3 size = Vector3.one;
-    [SerializeField, ShowIf("shapeSphere")]
+    [SerializeField, ShowIf(ConditionOperator.And, "globalInvert", "shapeSphere")]
     protected float radius = 1;
 
+    protected bool globalInvert() => !global;
     protected bool shapeBox() => shape == Shape.box;
     protected bool shapeSphere() => shape == Shape.sphere;
 
@@ -28,7 +29,7 @@ public class EventBase : MonoBehaviour
 
     protected virtual void Start()
     {
-         if (shape == Shape.box)
+        if (shape == Shape.box)
         {
             BoxCollider box = (BoxCollider)gameObject.AddComponent(typeof(BoxCollider));
             box.size = size;

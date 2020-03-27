@@ -8,13 +8,39 @@ public class EventInteract : EventBase
     [Space(10)]
 
     [SerializeField]
+    float delay = 0;
+    [SerializeField]
     UnityEvent response;
 
+    bool triggered = false;
+
+    IEnumerator ResponseDelayed
+    {
+        get
+        {
+            float t = 0;
+            while (t < 1)
+            {
+                t += Time.deltaTime / delay;
+                yield return null;
+            }
+
+            response.Invoke();
+        }
+    }
     private void OnMouseDown()
     {
-        if (InRange)
+        if (!triggered && InRange)
         {
-            response.Invoke();
+            if (delay > 0)
+            {
+                StartCoroutine(ResponseDelayed);
+            }
+            else
+            {
+                response.Invoke();
+            }
+            triggered = true;
         }
     }
 }

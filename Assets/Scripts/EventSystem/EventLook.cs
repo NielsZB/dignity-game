@@ -13,9 +13,9 @@ public class EventLook : EventBase
     [Space(10)]
     [SerializeField]
     lookType look = default;
-
-    [SerializeField]
-    float angle;
+    Transform point = default;
+    [SerializeField, Range(0,180)]
+    float angle = 10f;
 
     [SerializeField]
     UnityEvent response = default;
@@ -27,13 +27,17 @@ public class EventLook : EventBase
     {
         base.Start();
         lookTransform = Camera.main.transform;
+        if (point == null)
+        {
+            point = transform;
+        }
     }
 
     private void Update()
     {
         if (InRange && !triggered)
         {
-            Vector3 direction = transform.position - lookTransform.position;
+            Vector3 direction = point.position - lookTransform.position;
             float currentAngle = Vector3.Angle(lookTransform.forward, direction);
 
             

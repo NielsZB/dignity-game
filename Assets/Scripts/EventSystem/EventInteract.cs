@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using NaughtyAttributes;
+
+[RequireComponent(typeof(EventInteractVFX))]
 public class EventInteract : EventBase
 {
     [Space(10)]
 
     [SerializeField]
-    UnityEvent response;
+    UnityEvent response = default;
 
     private void OnMouseDown()
     {

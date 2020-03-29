@@ -10,7 +10,7 @@ public class EventInteract : EventBase
     [SerializeField]
     float delay = 0;
     [SerializeField]
-    UnityEvent response;
+    UnityEvent response = default;
 
     bool triggered = false;
 

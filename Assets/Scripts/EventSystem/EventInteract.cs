@@ -17,18 +17,4 @@ public class EventInteract : EventBase
             response.Invoke();
         }
     }
-
-    private void OnMouseEnter()
-    {
-        
-    }
-
-    private void OnMouseExit()
-    {
-
-    }
-
-    float t;
-    float transitionDuration;
-
 }

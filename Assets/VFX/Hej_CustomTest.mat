@@ -25,8 +25,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Float0: 200
-    - _Float1: 0.3
+    - _Float1: 0
     - _Float4: -0.35
+    - _MaskStrenght: 0
+    - _OffsetVal: 0
     - _Pinch: 1
     - _Strenght: 0
     - _Strenght1: 1.74

@@ -5,9 +5,9 @@ Shader "Hej_CustomTest"
 	Properties
 	{
 		_MainTex ( "Screen", 2D ) = "black" {}
-		_Float4("Float 4", Float) = 0
+		_MaskStrenght("MaskStrenght", Float) = 0
 		[IntRange]_Float0("Float 0", Range( -200 , 200)) = 0
-		_Float1("Float 1", Float) = 0
+		_OffsetVal("OffsetVal", Float) = 0
 
 	}
 
@@ -58,8 +58,8 @@ Shader "Hej_CustomTest"
 			uniform half4 _MainTex_ST;
 			
 			uniform float _Float0;
-			uniform float _Float1;
-			uniform float _Float4;
+			uniform float _OffsetVal;
+			uniform float _MaskStrenght;
 			float4 MyCustomExpression87( sampler2D Tex , float Steps , float2 UV , float Offset , float Mask )
 			{
 				float4 result;
@@ -118,8 +118,8 @@ Shader "Hej_CustomTest"
 				float Steps87 = _Float0;
 				float2 uv0_MainTex = i.uv.xy * _MainTex_ST.xy + _MainTex_ST.zw;
 				float2 UV87 = uv0_MainTex;
-				float Offset87 = _Float1;
-				float temp_output_89_0 = saturate( ( length( (float2( -1,-1 ) + (uv0_MainTex - float2( 0,0 )) * (float2( 1,1 ) - float2( -1,-1 )) / (float2( 1,1 ) - float2( 0,0 ))) ) + _Float4 ) );
+				float Offset87 = _OffsetVal;
+				float temp_output_89_0 = saturate( ( length( (float2( -1,-1 ) + (uv0_MainTex - float2( 0,0 )) * (float2( 1,1 ) - float2( -1,-1 )) / (float2( 1,1 ) - float2( 0,0 ))) ) + _MaskStrenght ) );
 				float Mask87 = temp_output_89_0;
 				float4 localMyCustomExpression87 = MyCustomExpression87( Tex87 , Steps87 , UV87 , Offset87 , Mask87 );
 				
@@ -137,90 +137,90 @@ Shader "Hej_CustomTest"
 }
 /*ASEBEGIN
 Version=17800
-2151;321;1843;714;2027.155;1202.743;1.745116;True;False
+48;395;1522;545;1355.945;1096.721;1.386885;True;False
 Node;AmplifyShaderEditor.TemplateShaderPropertyNode;2;-686.489,-836.2928;Inherit;False;0;0;_MainTex;Shader;0;5;SAMPLER2D;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.TextureCoordinatesNode;4;-1226.636,-232.8248;Inherit;False;0;-1;2;3;2;SAMPLER2D;;False;0;FLOAT2;1,1;False;1;FLOAT2;0,0;False;5;FLOAT2;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.TFHCRemapNode;92;-727.185,-1312.805;Inherit;False;5;0;FLOAT2;0,0;False;1;FLOAT2;0,0;False;2;FLOAT2;1,1;False;3;FLOAT2;-1,-1;False;4;FLOAT2;1,1;False;1;FLOAT2;0
 Node;AmplifyShaderEditor.LengthOpNode;93;-461.5219,-1224.718;Inherit;True;1;0;FLOAT2;0,0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;91;-645.9941,-1055.308;Inherit;False;Property;_Float4;Float 4;2;0;Create;True;0;0;False;0;0;0;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;91;-482.3417,-1016.475;Inherit;False;Property;_MaskStrenght;MaskStrenght;2;0;Create;True;0;0;False;0;0;0;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleAddOpNode;90;-257.8011,-1181.607;Inherit;True;2;2;0;FLOAT;0;False;1;FLOAT;-0.38;False;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;62;-418.7053,-615.3311;Inherit;False;Property;_Float0;Float 0;3;1;[IntRange];Create;True;0;0;False;0;0;0;-200;200;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;64;-91.00414,-684.2524;Inherit;False;Property;_OffsetVal;OffsetVal;4;0;Create;True;0;0;False;0;0;0;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.SaturateNode;89;-88.19233,-1137.007;Inherit;True;1;0;FLOAT;0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;62;-354.6038,-563.0378;Inherit;False;Property;_Float0;Float 0;3;1;[IntRange];Create;True;0;0;False;0;0;0;-200;200;0;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;64;-164.1746,-333.0853;Inherit;False;Property;_Float1;Float 1;4;0;Create;True;0;0;False;0;0;0;0;0;0;1;FLOAT;0
-Node;AmplifyShaderEditor.SaturateNode;16;-88.50904,347.9437;Inherit;False;1;0;FLOAT2;0,0;False;1;FLOAT2;0
-Node;AmplifyShaderEditor.SimpleDivideOpNode;80;622.7592,-308.4179;Inherit;False;2;0;FLOAT4;0,0,0,0;False;1;FLOAT;0;False;1;FLOAT4;0
 Node;AmplifyShaderEditor.LerpOp;58;-71.48755,67.58325;Inherit;False;3;0;FLOAT2;0,0;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;1;FLOAT2;0
-Node;AmplifyShaderEditor.RangedFloatNode;12;-1116.298,508.2542;Inherit;False;Property;_Pinch;Pinch;0;0;Create;True;0;0;False;0;1;0.95;0;2;0;1;FLOAT;0
-Node;AmplifyShaderEditor.OneMinusNode;94;309.1055,-1099.252;Inherit;True;1;0;FLOAT;0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.SaturateNode;49;-425.7679,74.44264;Inherit;True;1;0;FLOAT;0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;48;-1079.551,79.35671;Inherit;False;Property;_Strenght;Strenght;1;0;Create;True;0;0;False;0;0;0;0;0;0;1;FLOAT;0
-Node;AmplifyShaderEditor.SimpleMultiplyOpNode;13;-508.0461,346.8931;Inherit;False;2;2;0;FLOAT2;0,0;False;1;FLOAT;0;False;1;FLOAT2;0
-Node;AmplifyShaderEditor.SamplerNode;1;-585.5958,-465.8889;Inherit;True;Property;_TextureSample0;Texture Sample 0;0;0;Create;True;0;0;False;0;-1;None;None;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;6;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.Vector2Node;18;-663.326,487.8421;Inherit;False;Constant;_Vector0;Vector 0;4;0;Create;True;0;0;False;0;0.5,0.5;0,0;0;3;FLOAT2;0;FLOAT;1;FLOAT;2
-Node;AmplifyShaderEditor.CustomExpressionNode;87;203.5276,-854.8595;Inherit;False;float4 result@$float4 a@$float4 b@$float4 offsetDir@$float totalOffset@$float2 test@$for(int i = 0@ i < Steps@ ++i)${$$$totalOffset += Offset /Steps@$$test = (((float2(-0.5,-0.5) +  (UV - float2( 0,0 )) * (float2( 0.5,0.5 ) - float2( -0.5,-0.5 )) / (float2( 1,1 ) - float2( 0,0 ))) * (1+(Offset*(i/Steps))))+ float2( 0.5,0.5 ) )@$				$offsetDir += tex2D(Tex, lerp(UV, test,Mask))@$$$$result =offsetDir / Steps@$$}$$float4 reg = tex2D(Tex, UV)@$//return lerp(reg,result,Mask)@$return result@;4;False;5;True;Tex;SAMPLER2D;;In;;Float;False;True;Steps;FLOAT;0;In;;Float;False;True;UV;FLOAT2;0,0;In;;Float;False;True;Offset;FLOAT;0;In;;Float;False;True;Mask;FLOAT;0;In;;Float;False;My Custom Expression;True;False;0;5;0;SAMPLER2D;;False;1;FLOAT;0;False;2;FLOAT2;0,0;False;3;FLOAT;0;False;4;FLOAT;0;False;1;FLOAT4;0
-Node;AmplifyShaderEditor.LengthOpNode;8;-895.0789,-90.05327;Inherit;True;1;0;FLOAT2;0,0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;86;411.0433,-372.8757;Inherit;False;Constant;_Float3;Float 3;4;0;Create;True;0;0;False;0;2;0;0;0;0;1;FLOAT;0
-Node;AmplifyShaderEditor.SimpleMultiplyOpNode;83;495.1137,-183.3361;Inherit;False;2;2;0;FLOAT4;0,0,0,0;False;1;FLOAT4;0,0,0,0;False;1;FLOAT4;0
-Node;AmplifyShaderEditor.CustomExpressionNode;61;199.4412,-627.0336;Inherit;False;float4 result@$float4 a@$float4 b@$float4 offsetDir@$float totalOffset@$float2 test@$for(int i = 0@ i < iterations@ ++i)${$float time = i/iterations@$$totalOffset += offset * 0.01@$test = float2(UV * totalOffset)@$offsetDir += tex2D(Tex, (UV + test ))@$$//result += (offsetDir +(i/iterations))@$$a = offsetDir / iterations@$//result *= offsetDir +(i/iterations)@$$}$$for(int z = 0@ z < iterations@ ++z)${$float time = i/iterations@$$totalOffset += offset * 0.01@$test = float2(UV * totalOffset)@$offsetDir += tex2D(Tex, (UV - test ))@$$b = offsetDir / iterations@$$}$$result = (a + b)/2@$return result@;4;False;4;True;Tex;SAMPLER2D;0,0,0,0;In;;Float;False;True;iterations;FLOAT;0;In;;Float;False;True;UV;FLOAT2;0,0;In;;Float;False;True;offset;FLOAT;0;In;;Float;False;My Custom Expression;True;False;0;4;0;SAMPLER2D;0,0,0,0;False;1;FLOAT;0;False;2;FLOAT2;0,0;False;3;FLOAT;0;False;1;FLOAT4;0
-Node;AmplifyShaderEditor.TFHCRemapNode;19;-863.5016,236.8822;Inherit;False;5;0;FLOAT2;0,0;False;1;FLOAT2;0,0;False;2;FLOAT2;1,1;False;3;FLOAT2;-0.5,-0.5;False;4;FLOAT2;0.5,0.5;False;1;FLOAT2;0
-Node;AmplifyShaderEditor.SimpleAddOpNode;14;-276.3393,369.01;Inherit;False;2;2;0;FLOAT2;0,0;False;1;FLOAT2;0,0;False;1;FLOAT2;0
-Node;AmplifyShaderEditor.LerpOp;88;455.1501,-693.3654;Inherit;False;3;0;FLOAT4;0,0,0,0;False;1;FLOAT4;0,0,0,0;False;2;FLOAT4;0,0,0,0;False;1;FLOAT4;0
-Node;AmplifyShaderEditor.OneMinusNode;59;-256.584,105.082;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.TFHCRemapNode;9;-1501.589,-163.1029;Inherit;False;5;0;FLOAT2;0,0;False;1;FLOAT2;0,0;False;2;FLOAT2;1,1;False;3;FLOAT2;-1,-1;False;4;FLOAT2;1,1;False;1;FLOAT2;0
-Node;AmplifyShaderEditor.SaturateNode;84;845.1578,-249.7168;Inherit;False;1;0;FLOAT4;0,0,0,0;False;1;FLOAT4;0
-Node;AmplifyShaderEditor.SimpleAddOpNode;77;476.5808,-311.2365;Inherit;False;2;2;0;FLOAT4;0,0,0,0;False;1;FLOAT4;0,0,0,0;False;1;FLOAT4;0
-Node;AmplifyShaderEditor.SimpleMultiplyOpNode;85;80.15857,-225.1157;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.CustomExpressionNode;78;233.8563,-162.6264;Inherit;False;float4 result@$float4 BW@$float4 BW2@$float totalOffset@$float2 test@$for(int i = 0@ i < iterations@ ++i)${$totalOffset += offset * 0.01@$test = float2(UV * totalOffset)@$BW = tex2D(Tex, (UV + test))@$BW2 = tex2D(Tex, (UV - test))@$$result += clamp(BW +(i/iterations),0,1)@$}$$result /= iterations@$$return result@;4;False;4;True;Tex;SAMPLER2D;0,0,0,0;In;;Float;False;True;iterations;FLOAT;0;In;;Float;False;True;UV;FLOAT2;0,0;In;;Float;False;True;offset;FLOAT;0;In;;Float;False;My Custom Expression;True;False;0;4;0;SAMPLER2D;0,0,0,0;False;1;FLOAT;0;False;2;FLOAT2;0,0;False;3;FLOAT;0;False;1;FLOAT4;0
-Node;AmplifyShaderEditor.RangedFloatNode;72;-153.5667,-135.4714;Inherit;False;Constant;_Float2;Float 2;5;0;Create;True;0;0;False;0;-1;0;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.CustomExpressionNode;87;179.4943,-909.4808;Inherit;False;float4 result@$float4 a@$float4 b@$float4 offsetDir@$float totalOffset@$float2 test@$for(int i = 0@ i < Steps@ ++i)${$$$totalOffset += Offset /Steps@$$test = (((float2(-0.5,-0.5) +  (UV - float2( 0,0 )) * (float2( 0.5,0.5 ) - float2( -0.5,-0.5 )) / (float2( 1,1 ) - float2( 0,0 ))) * (1+(Offset*(i/Steps))))+ float2( 0.5,0.5 ) )@$				$offsetDir += tex2D(Tex, lerp(UV, test,Mask))@$$$$result =offsetDir / Steps@$$}$$float4 reg = tex2D(Tex, UV)@$//return lerp(reg,result,Mask)@$return result@;4;False;5;True;Tex;SAMPLER2D;;In;;Float;False;True;Steps;FLOAT;0;In;;Float;False;True;UV;FLOAT2;0,0;In;;Float;False;True;Offset;FLOAT;0;In;;Float;False;True;Mask;FLOAT;0;In;;Float;False;My Custom Expression;True;False;0;5;0;SAMPLER2D;;False;1;FLOAT;0;False;2;FLOAT2;0,0;False;3;FLOAT;0;False;4;FLOAT;0;False;1;FLOAT4;0
 Node;AmplifyShaderEditor.SimpleAddOpNode;47;-691.3581,-46.94199;Inherit;True;2;2;0;FLOAT;0;False;1;FLOAT;-0.38;False;1;FLOAT;0
-Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;0;797.2838,-649.8634;Float;False;True;-1;2;ASEMaterialInspector;0;2;Hej_CustomTest;c71b220b631b6344493ea3cf87110c93;True;SubShader 0 Pass 0;0;0;SubShader 0 Pass 0;1;False;False;False;True;2;False;-1;False;False;True;2;False;-1;True;7;False;-1;False;True;0;False;0;False;False;False;False;False;False;False;False;False;False;True;2;0;;0;0;Standard;0;0;1;True;False;;0
+Node;AmplifyShaderEditor.RangedFloatNode;72;-153.5667,-135.4714;Inherit;False;Constant;_Float2;Float 2;5;0;Create;True;0;0;False;0;-1;0;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.CustomExpressionNode;78;233.8563,-162.6264;Inherit;False;float4 result@$float4 BW@$float4 BW2@$float totalOffset@$float2 test@$for(int i = 0@ i < iterations@ ++i)${$totalOffset += offset * 0.01@$test = float2(UV * totalOffset)@$BW = tex2D(Tex, (UV + test))@$BW2 = tex2D(Tex, (UV - test))@$$result += clamp(BW +(i/iterations),0,1)@$}$$result /= iterations@$$return result@;4;False;4;True;Tex;SAMPLER2D;0,0,0,0;In;;Float;False;True;iterations;FLOAT;0;In;;Float;False;True;UV;FLOAT2;0,0;In;;Float;False;True;offset;FLOAT;0;In;;Float;False;My Custom Expression;True;False;0;4;0;SAMPLER2D;0,0,0,0;False;1;FLOAT;0;False;2;FLOAT2;0,0;False;3;FLOAT;0;False;1;FLOAT4;0
+Node;AmplifyShaderEditor.SimpleMultiplyOpNode;85;80.15857,-225.1157;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.SimpleAddOpNode;77;476.5808,-311.2365;Inherit;False;2;2;0;FLOAT4;0,0,0,0;False;1;FLOAT4;0,0,0,0;False;1;FLOAT4;0
+Node;AmplifyShaderEditor.SaturateNode;84;845.1578,-249.7168;Inherit;False;1;0;FLOAT4;0,0,0,0;False;1;FLOAT4;0
+Node;AmplifyShaderEditor.TFHCRemapNode;9;-1501.589,-163.1029;Inherit;False;5;0;FLOAT2;0,0;False;1;FLOAT2;0,0;False;2;FLOAT2;1,1;False;3;FLOAT2;-1,-1;False;4;FLOAT2;1,1;False;1;FLOAT2;0
+Node;AmplifyShaderEditor.OneMinusNode;59;-256.584,105.082;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.LerpOp;88;455.1501,-693.3654;Inherit;False;3;0;FLOAT4;0,0,0,0;False;1;FLOAT4;0,0,0,0;False;2;FLOAT4;0,0,0,0;False;1;FLOAT4;0
+Node;AmplifyShaderEditor.SimpleDivideOpNode;80;622.7592,-308.4179;Inherit;False;2;0;FLOAT4;0,0,0,0;False;1;FLOAT;0;False;1;FLOAT4;0
+Node;AmplifyShaderEditor.SimpleAddOpNode;14;-276.3393,369.01;Inherit;False;2;2;0;FLOAT2;0,0;False;1;FLOAT2;0,0;False;1;FLOAT2;0
+Node;AmplifyShaderEditor.CustomExpressionNode;61;199.4412,-627.0336;Inherit;False;float4 result@$float4 a@$float4 b@$float4 offsetDir@$float totalOffset@$float2 test@$for(int i = 0@ i < iterations@ ++i)${$float time = i/iterations@$$totalOffset += offset * 0.01@$test = float2(UV * totalOffset)@$offsetDir += tex2D(Tex, (UV + test ))@$$//result += (offsetDir +(i/iterations))@$$a = offsetDir / iterations@$//result *= offsetDir +(i/iterations)@$$}$$for(int z = 0@ z < iterations@ ++z)${$float time = i/iterations@$$totalOffset += offset * 0.01@$test = float2(UV * totalOffset)@$offsetDir += tex2D(Tex, (UV - test ))@$$b = offsetDir / iterations@$$}$$result = (a + b)/2@$return result@;4;False;4;True;Tex;SAMPLER2D;0,0,0,0;In;;Float;False;True;iterations;FLOAT;0;In;;Float;False;True;UV;FLOAT2;0,0;In;;Float;False;True;offset;FLOAT;0;In;;Float;False;My Custom Expression;True;False;0;4;0;SAMPLER2D;0,0,0,0;False;1;FLOAT;0;False;2;FLOAT2;0,0;False;3;FLOAT;0;False;1;FLOAT4;0
+Node;AmplifyShaderEditor.SimpleMultiplyOpNode;83;495.1137,-183.3361;Inherit;False;2;2;0;FLOAT4;0,0,0,0;False;1;FLOAT4;0,0,0,0;False;1;FLOAT4;0
+Node;AmplifyShaderEditor.SaturateNode;16;-88.50904,347.9437;Inherit;False;1;0;FLOAT2;0,0;False;1;FLOAT2;0
+Node;AmplifyShaderEditor.LengthOpNode;8;-895.0789,-90.05327;Inherit;True;1;0;FLOAT2;0,0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.Vector2Node;18;-663.326,487.8421;Inherit;False;Constant;_Vector0;Vector 0;4;0;Create;True;0;0;False;0;0.5,0.5;0,0;0;3;FLOAT2;0;FLOAT;1;FLOAT;2
+Node;AmplifyShaderEditor.SamplerNode;1;-585.5958,-465.8889;Inherit;True;Property;_TextureSample0;Texture Sample 0;0;0;Create;True;0;0;False;0;-1;None;None;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;6;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.SimpleMultiplyOpNode;13;-508.0461,346.8931;Inherit;False;2;2;0;FLOAT2;0,0;False;1;FLOAT;0;False;1;FLOAT2;0
+Node;AmplifyShaderEditor.RangedFloatNode;48;-1079.551,79.35671;Inherit;False;Property;_Strenght;Strenght;1;0;Create;True;0;0;False;0;0;0;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.SaturateNode;49;-425.7679,74.44264;Inherit;True;1;0;FLOAT;0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.OneMinusNode;94;309.1055,-1099.252;Inherit;True;1;0;FLOAT;0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;12;-1116.298,508.2542;Inherit;False;Property;_Pinch;Pinch;0;0;Create;True;0;0;False;0;1;0.95;0;2;0;1;FLOAT;0
+Node;AmplifyShaderEditor.TFHCRemapNode;19;-863.5016,236.8822;Inherit;False;5;0;FLOAT2;0,0;False;1;FLOAT2;0,0;False;2;FLOAT2;1,1;False;3;FLOAT2;-0.5,-0.5;False;4;FLOAT2;0.5,0.5;False;1;FLOAT2;0
+Node;AmplifyShaderEditor.RangedFloatNode;86;411.0433,-372.8757;Inherit;False;Constant;_Float3;Float 3;4;0;Create;True;0;0;False;0;2;0;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;0;803.8383,-866.1635;Float;False;True;-1;2;ASEMaterialInspector;0;2;Hej_CustomTest;c71b220b631b6344493ea3cf87110c93;True;SubShader 0 Pass 0;0;0;SubShader 0 Pass 0;1;False;False;False;True;2;False;-1;False;False;True;2;False;-1;True;7;False;-1;False;True;0;False;0;False;False;False;False;False;False;False;False;False;False;True;2;0;;0;0;Standard;0;0;1;True;False;;0
 WireConnection;4;2;2;0
 WireConnection;92;0;4;0
 WireConnection;93;0;92;0
 WireConnection;90;0;93;0
 WireConnection;90;1;91;0
 WireConnection;89;0;90;0
-WireConnection;16;0;14;0
-WireConnection;80;0;61;0
-WireConnection;80;1;86;0
 WireConnection;58;0;4;0
 WireConnection;58;1;16;0
 WireConnection;58;2;59;0
-WireConnection;94;0;89;0
-WireConnection;49;0;47;0
-WireConnection;13;0;19;0
-WireConnection;13;1;12;0
-WireConnection;1;0;2;0
-WireConnection;1;1;4;0
 WireConnection;87;0;2;0
 WireConnection;87;1;62;0
 WireConnection;87;2;4;0
 WireConnection;87;3;64;0
 WireConnection;87;4;89;0
-WireConnection;8;0;9;0
-WireConnection;83;0;61;0
-WireConnection;83;1;78;0
-WireConnection;61;0;2;0
-WireConnection;61;1;62;0
-WireConnection;61;2;4;0
-WireConnection;61;3;64;0
-WireConnection;19;0;4;0
-WireConnection;14;0;13;0
-WireConnection;14;1;18;0
-WireConnection;88;1;87;0
-WireConnection;59;0;49;0
-WireConnection;9;0;4;0
-WireConnection;84;0;80;0
-WireConnection;77;0;61;0
-WireConnection;77;1;78;0
-WireConnection;85;0;64;0
-WireConnection;85;1;72;0
+WireConnection;47;0;8;0
+WireConnection;47;1;48;0
 WireConnection;78;0;2;0
 WireConnection;78;1;62;0
 WireConnection;78;2;4;0
 WireConnection;78;3;85;0
-WireConnection;47;0;8;0
-WireConnection;47;1;48;0
+WireConnection;85;0;64;0
+WireConnection;85;1;72;0
+WireConnection;77;0;61;0
+WireConnection;77;1;78;0
+WireConnection;84;0;80;0
+WireConnection;9;0;4;0
+WireConnection;59;0;49;0
+WireConnection;88;1;87;0
+WireConnection;80;0;61;0
+WireConnection;80;1;86;0
+WireConnection;14;0;13;0
+WireConnection;14;1;18;0
+WireConnection;61;0;2;0
+WireConnection;61;1;62;0
+WireConnection;61;2;4;0
+WireConnection;61;3;64;0
+WireConnection;83;0;61;0
+WireConnection;83;1;78;0
+WireConnection;16;0;14;0
+WireConnection;8;0;9;0
+WireConnection;1;0;2;0
+WireConnection;1;1;4;0
+WireConnection;13;0;19;0
+WireConnection;13;1;12;0
+WireConnection;49;0;47;0
+WireConnection;94;0;89;0
+WireConnection;19;0;4;0
 WireConnection;0;0;87;0
 ASEEND*/
-//CHKSM=5DA42A1C6B55FFE76FD6C125114FC7D93D268E91
+//CHKSM=C3494DFF3C0CD576949A1D478884DD5D1C9CA357

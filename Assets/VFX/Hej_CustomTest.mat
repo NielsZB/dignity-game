@@ -27,7 +27,10 @@ Material:
     - _Float0: 200
     - _Float1: 0.3
     - _Float4: -0.35
+    - _MaskStrenght: 0.3
+    - _OffsetVal: 0
     - _Pinch: 1
+    - _Steps: 200
     - _Strenght: 0
     - _Strenght1: 1.74
     m_Colors: []

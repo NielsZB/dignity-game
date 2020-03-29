@@ -1,9 +1,11 @@
 using UnityEngine;
 
 [ExecuteInEditMode]
-public class PostProcessExample : MonoBehaviour
+public class PostProcess_Blur : MonoBehaviour
 {
 	public Material PostProcessMat;
+	public float maskStrenght;
+	public float offsetVal;
 	private void Awake()
 	{
 		if( PostProcessMat == null )
@@ -18,6 +20,12 @@ public class PostProcessExample : MonoBehaviour
 			PostProcessMat.mainTexture = PostProcessMat.mainTexture;
 		}
 
+	}
+
+	void Update()
+	{
+		PostProcessMat.SetFloat("_MaskStrenght", maskStrenght);
+		PostProcessMat.SetFloat("_OffsetVal", offsetVal);
 	}
 
 	void OnRenderImage( RenderTexture src, RenderTexture dest )

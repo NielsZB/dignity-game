@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.Events;
 using NaughtyAttributes;
 
-[RequireComponent(typeof(EventInteractVFX))]
 public class EventInteract : EventBase
 {
     [Space(10)]

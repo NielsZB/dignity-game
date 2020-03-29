@@ -13,6 +13,7 @@ public class EventLook : EventBase
     [Space(10)]
     [SerializeField]
     lookType look = default;
+    [SerializeField]
     Transform point = default;
     [SerializeField, Range(0,180)]
     float angle = 10f;

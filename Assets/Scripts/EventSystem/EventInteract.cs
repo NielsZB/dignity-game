@@ -43,4 +43,18 @@ public class EventInteract : EventBase
             triggered = true;
         }
     }
+
+    private void OnMouseEnter()
+    {
+        
+    }
+
+    private void OnMouseExit()
+    {
+
+    }
+
+    float t;
+    float transitionDuration;
+
 }

@@ -5362,7 +5362,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 160659763}
-  m_LocalRotation: {x: -0.39896235, y: -0.5864305, z: 0.57628363, w: -0.4059871}
+  m_LocalRotation: {x: -0.6946299, y: -0.000002026558, z: 0.000001937151, w: -0.71936727}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -13344,7 +13344,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 524755041}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalPosition: {x: 0, y: -1, z: 0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 616621857}
@@ -30312,9 +30312,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1017299362}
+  - component: {fileID: 1017299366}
   - component: {fileID: 1017299364}
   - component: {fileID: 1017299363}
-  - component: {fileID: 1017299365}
   m_Layer: 0
   m_Name: Sequence_2_Bathroom_StopDrip_Interact
   m_TagString: Untagged
@@ -30345,41 +30345,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1017299361}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffae4ca23eec9b74dbbed713c91d6fba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  global: 0
-  shape: 0
-  size: {x: 1.5, y: 1.5, z: 1.5}
-  radius: 1
-  triggerOn: 0
-  delay: 0
-  enterResponse:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1367357442}
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  exitResponse:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &1017299364
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1017299361}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e66a376d43cd2f4e91b90aaccaf7573, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -30387,29 +30352,8 @@ MonoBehaviour:
   shape: 0
   size: {x: 1, y: 1, z: 1}
   radius: 1
-  delay: 0
-  response:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &1017299365
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1017299361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffae4ca23eec9b74dbbed713c91d6fba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  global: 0
-  shape: 0
-  size: {x: 1.5, y: 1.5, z: 1.5}
-  radius: 1
-  triggerOn: 0
   delay: 2
-  enterResponse:
+  response:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 265362719}
@@ -30434,9 +30378,50 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  exitResponse:
+--- !u!114 &1017299364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017299361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e66a376d43cd2f4e91b90aaccaf7573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  global: 0
+  shape: 0
+  size: {x: 1.5, y: 1.5, z: 1.5}
+  radius: 1
+  delay: 0
+  response:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1367357442}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!65 &1017299366
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017299361}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.39645195, y: 0.39046526, z: 0.41869688}
+  m_Center: {x: 0.037638307, y: -0.2310245, z: 0.010454893}
 --- !u!1 &1035658505
 GameObject:
   m_ObjectHideFlags: 0
@@ -30605,7 +30590,7 @@ GameObject:
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1062409900
 Transform:
   m_ObjectHideFlags: 0
@@ -32211,7 +32196,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1509646771}
-  m_LocalRotation: {x: -0.1241986, y: 0.75251186, z: -0.14847088, w: -0.62948954}
+  m_LocalRotation: {x: 0.12419855, y: -0.75251186, z: 0.1484709, w: 0.6294896}
   m_LocalPosition: {x: -3.56, y: 2, z: -0.6759501}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -33502,7 +33487,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25512
+  m_Name: pb_Mesh17538
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

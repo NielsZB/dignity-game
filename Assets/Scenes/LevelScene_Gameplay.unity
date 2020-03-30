@@ -514,7 +514,6 @@ GameObject:
   m_Component:
   - component: {fileID: 76520104}
   - component: {fileID: 76520105}
-  - component: {fileID: 76520107}
   - component: {fileID: 76520106}
   m_Layer: 0
   m_Name: Sequence_5_LivingRoom#3_TV/StartSeq6(Knocking)_Interact
@@ -588,6 +587,17 @@ MonoBehaviour:
           m_StringArgument: Cam_Idle
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7175301850860112357}
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: TVHolderAnimIdle
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!65 &76520106
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -601,68 +611,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.06, y: 0.99, z: 1.92}
   m_Center: {x: 0.73, y: -0.06, z: 0.09}
---- !u!114 &76520107
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 76520103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c37d5849c2bb1794ea564a228ee178b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectToHighlight: {fileID: 7175301850860112355}
-  duration: 1
-  highlight:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  dehighlight:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: -1
-      outSlope: -1
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: -1
-      outSlope: -1
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &87176194
 GameObject:
   m_ObjectHideFlags: 0
@@ -897,6 +845,17 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 798043020}
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ActiveInteractiveEffect
           m_BoolArgument: 1
         m_CallState: 2
   exitResponse:
@@ -5729,7 +5688,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 160659763}
-  m_LocalRotation: {x: 0.70090926, y: -0.0000056624413, z: 0.0000056624413, w: 0.7132505}
+  m_LocalRotation: {x: 0.70090926, y: 0.000004202127, z: -0.000004202127, w: 0.71325046}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -11729,13 +11688,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 380006245}
+  - component: {fileID: 380006246}
   m_Layer: 0
   m_Name: Sequence_2_Bathroom_StartDrip
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &380006245
 Transform:
   m_ObjectHideFlags: 0
@@ -11744,12 +11704,56 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 380006244}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.51, y: 0.68, z: 9.99}
+  m_LocalPosition: {x: 1.84, y: 0.68, z: 0.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1076954496}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &380006246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380006244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffae4ca23eec9b74dbbed713c91d6fba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shape: 0
+  size: {x: 5, y: 1, z: 5}
+  radius: 1
+  triggerOn: 0
+  enterResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 489345995}
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ActiveInteractiveEffect
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 380006244}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  exitResponse:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &381791781
 GameObject:
   m_ObjectHideFlags: 0
@@ -13965,6 +13969,7 @@ GameObject:
   - component: {fileID: 489345994}
   - component: {fileID: 489345993}
   - component: {fileID: 489345992}
+  - component: {fileID: 489345995}
   m_Layer: 0
   m_Name: Sink-S00B (1)
   m_TagString: Untagged
@@ -14047,6 +14052,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 489345990}
   m_Mesh: {fileID: -1878939136964835631, guid: 0e959bc6138f0e34fbc543d3c75fff71, type: 3}
+--- !u!95 &489345995
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489345990}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 979ca2135f9a1894ea6c9f090bddf169, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &503260800
 GameObject:
   m_ObjectHideFlags: 0
@@ -26081,7 +26105,7 @@ Animator:
   m_GameObject: {fileID: 798043015}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c58e84eb04451f44aace476afd88b3fb, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -32081,7 +32105,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1017299362}
   - component: {fileID: 1017299364}
-  - component: {fileID: 1017299365}
   - component: {fileID: 1017299363}
   m_Layer: 0
   m_Name: Sequence_2_Bathroom_StopDrip_Interact
@@ -32168,68 +32191,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1017299365
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1017299361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c37d5849c2bb1794ea564a228ee178b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectToHighlight: {fileID: 489345990}
-  duration: 1
-  highlight:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  dehighlight:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: -1
-      outSlope: -1
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: -1
-      outSlope: -1
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+      - m_Target: {fileID: 489345995}
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: SinkAnimIdle
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1035658505
 GameObject:
   m_ObjectHideFlags: 0
@@ -32726,7 +32698,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1084885622}
   - component: {fileID: 1084885623}
-  - component: {fileID: 1084885625}
   - component: {fileID: 1084885624}
   m_Layer: 0
   m_Name: Sequence_4_Kitchen_LookAtKettle/Cinematic/StartSeq5(BlinkingTV)_Interact
@@ -32822,6 +32793,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7175301850860112357}
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ActiveInteractiveEffect
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 798043020}
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Kettle_Idle
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!136 &1084885624
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -32836,68 +32829,6 @@ CapsuleCollider:
   m_Height: 0.56
   m_Direction: 1
   m_Center: {x: -0.12, y: -0.03, z: 0}
---- !u!114 &1084885625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1084885621}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c37d5849c2bb1794ea564a228ee178b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectToHighlight: {fileID: 798043015}
-  duration: 1
-  highlight:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  dehighlight:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: -1
-      outSlope: -1
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: -1
-      outSlope: -1
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &1095831159
 GameObject:
   m_ObjectHideFlags: 0
@@ -33777,7 +33708,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1352459641}
   - component: {fileID: 1352459642}
-  - component: {fileID: 1352459644}
   - component: {fileID: 1352459643}
   m_Layer: 0
   m_Name: Sequence_3_LivingRoom#2_LampIntense/BloodStart_Interact
@@ -33840,6 +33770,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1866634360}
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LampIdle
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!136 &1352459643
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -33854,68 +33795,6 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0.075, z: 0}
---- !u!114 &1352459644
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1352459640}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c37d5849c2bb1794ea564a228ee178b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectToHighlight: {fileID: 1866634358}
-  duration: 1
-  highlight:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  dehighlight:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: -1
-      outSlope: -1
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: -1
-      outSlope: -1
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &1357519779
 GameObject:
   m_ObjectHideFlags: 0
@@ -43333,6 +43212,7 @@ GameObject:
   - component: {fileID: 6830832974378447488}
   - component: {fileID: 6555783367847583561}
   - component: {fileID: 7175301850860112356}
+  - component: {fileID: 7175301850860112357}
   m_Layer: 0
   m_Name: TV-M00B
   m_TagString: Untagged
@@ -43354,6 +43234,25 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 7705063336808178672, guid: 0e959bc6138f0e34fbc543d3c75fff71, type: 3}
+--- !u!95 &7175301850860112357
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7175301850860112355}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 39ac0a341d6042748b9fb5ffa3cb83d7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!33 &7203410784633032285
 MeshFilter:
   m_ObjectHideFlags: 0

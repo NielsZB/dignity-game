@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Hej_CustomTest
+  m_Name: Screen_Blur
   m_Shader: {fileID: 4800000, guid: e8ecc03e0b40ddd4784783a052d853f0, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -23,13 +23,23 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _TextureSample2:
+        m_Texture: {fileID: 2800000, guid: ee200f7f49ef75a44a1bceddf22c0b15, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureSample3:
+        m_Texture: {fileID: 2800000, guid: ee200f7f49ef75a44a1bceddf22c0b15, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Float0: 200
     - _Float1: 0
     - _Float4: -0.35
-    - _MaskStrenght: 0
-    - _OffsetVal: 0
-    - _Pinch: 1
+    - _MaskStrenght: 1
+    - _OffsetVal: 0.1
+    - _Pinch: 0.95
+    - _Speed: 1
+    - _Speed1: 5
     - _Strenght: 0
     - _Strenght1: 1.74
     m_Colors: []

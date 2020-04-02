@@ -43,6 +43,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool m_Jumping;
         private AudioSource m_AudioSource;
 
+        [Range(0,1)]
+        public float camMoveMultiplier = 1;
+
         // Use this for initialization
         private void Start()
         {
@@ -237,7 +240,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void RotateView()
         {
-            m_MouseLook.LookRotation (transform, cinemachineCamMain.transform);
+            m_MouseLook.LookRotation (transform, cinemachineCamMain.transform, camMoveMultiplier);
         }
 
 

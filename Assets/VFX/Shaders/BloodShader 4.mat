@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BloodShader
-  m_Shader: {fileID: 4800000, guid: 526f3fb7d71c2734fad63232745d511d, type: 3}
-  m_ShaderKeywords: 
+  m_Name: BloodShader 4
+  m_Shader: {fileID: 4800000, guid: ef3db8e6d7bfb77418f371f136643b91, type: 3}
+  m_ShaderKeywords: _USEPOLAR_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -23,32 +23,52 @@ Material:
         m_Texture: {fileID: 2800000, guid: 4d441829284fc924a8483ae911b4389e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _DistortTex1:
+        m_Texture: {fileID: 2800000, guid: 4d441829284fc924a8483ae911b4389e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _ErosionTex:
-        m_Texture: {fileID: 2800000, guid: ead51f3d4eb04bd4c8e35c1b31ce4eba, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: c743d49c2864438489310b1132ecf7d9, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Normal:
+        m_Texture: {fileID: 2800000, guid: 94c211b08b75bc74eb335d046a99271c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0.265, y: 0.06}
     - _NormalTex:
-        m_Texture: {fileID: 2800000, guid: a39b9c51c34d0074cbb60524ea468047, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _TextureSample0:
+        m_Texture: {fileID: 2800000, guid: 8c4a7fca2884fab419769ccc0355c0c1, type: 3}
+        m_Scale: {x: 0.75, y: 0.75}
+        m_Offset: {x: 0.31, y: 0.2}
     - _texcoord:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Alpha: 1
+    - _Alpha: 0.75
+    - _ChangeVal: 1
     - _Cutoff: 0.5
-    - _Erosion_Val: 0.92
-    - _Float1: 0.05
-    - _Max: 0.1
+    - _Depth: 0.1
+    - _Erosion_Val: 0
+    - _Erosion_Val1: 0
+    - _Float1: 0
+    - _Float2: 0.2
+    - _Float3: 0.04
+    - _Max: 1
     - _Min: 0
     - _NormalStrenght: 0.5
     - _Smoothness: 1
+    - _TessValue: 32
+    - _UsePolar: 1
     - _UseVertexA_Erosion: 0
     - __dirty: 0
     m_Colors:
-    - _Color: {r: 0.5849056, g: 0, b: 0, a: 0}
+    - _Color: {r: 0.24635102, g: 0.27015206, b: 0.3018868, a: 0}
+    - _Norm_Polar: {r: 0.25, g: 1, b: -0.2, a: 0}
